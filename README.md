@@ -1,5 +1,7 @@
 # pi-unstoppable
 
+[![npm](https://img.shields.io/npm/v/pi-unstoppable)](https://www.npmjs.com/package/pi-unstoppable) [![CI](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml/badge.svg)](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml)
+
 **AUTOPILOT for [Pi](https://github.com/earendil-works/pi).** Give Pi a goal; it keeps working toward it — inspecting, building, testing, hardening — until *you* say stop.
 
 ```
@@ -19,13 +21,19 @@ No iteration cap. No deadline. No context cap. No tool the model can call to dec
 ## Install
 
 ```bash
-pi install git:github.com/YellowFoxH4XOR/pi-unstoppable
+pi install npm:pi-unstoppable
 ```
 
 Try it without installing:
 
 ```bash
-pi -e git:github.com/YellowFoxH4XOR/pi-unstoppable
+pi -e npm:pi-unstoppable
+```
+
+From GitHub (pinned to a tag; `pi update` does not move git refs):
+
+```bash
+pi install git:github.com/YellowFoxH4XOR/pi-unstoppable@v0.1.0
 ```
 
 Or from a local checkout:
