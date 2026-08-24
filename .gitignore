@@ -1,0 +1,5 @@
+node_modules/
+test/.tmp-project/
+.pi/autopilot/
+*.log
+.DS_Store

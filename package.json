@@ -1,0 +1,70 @@
+{
+  "name": "pi-unstoppable",
+  "version": "0.1.0",
+  "description": "AUTOPILOT for Pi: /goal <objective> keeps the agent working until you say stop. No iteration caps, no deadlines, no model-decidable \"done\".",
+  "type": "module",
+  "license": "MIT",
+  "author": "YellowFoxH4XOR",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YellowFoxH4XOR/pi-unstoppable.git"
+  },
+  "homepage": "https://github.com/YellowFoxH4XOR/pi-unstoppable#readme",
+  "bugs": {
+    "url": "https://github.com/YellowFoxH4XOR/pi-unstoppable/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "autopilot",
+    "autonomous",
+    "agent",
+    "harness",
+    "extension",
+    "coding-agent",
+    "llm"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "pi": {
+    "extensions": [
+      "./autopilot.ts"
+    ]
+  },
+  "files": [
+    "autopilot.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/autopilot.test.mjs",
+    "check": "npm run typecheck && npm test"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.2",
+    "@earendil-works/pi-tui": "0.84.2",
+    "@types/node": "^22.15.0",
+    "typebox": "1.3.7",
+    "typescript": "5.9.3"
+  }
+}
