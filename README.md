@@ -35,7 +35,7 @@ git clone https://github.com/YellowFoxH4XOR/pi-unstoppable
 pi install /path/to/pi-unstoppable
 ```
 
-Restart Pi (or `/reload`) after installing. Requires Pi ≥ 0.84 (for the `agent_settled` event).
+Restart Pi (or `/reload`) after installing. Requires Pi ≥ 0.84 (for the `agent_settled` event) and Node ≥ 22 (same as Pi).
 
 ## Commands
 
