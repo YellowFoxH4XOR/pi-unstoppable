@@ -10,6 +10,10 @@ updates:
     groups:
       npm:
         patterns: ["*"]
+    ignore:
+      # @types/node major must match the minimum supported Node (engines.node).
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   # Keep action pins (actions/*, google/osv-scanner-action) current.
   - package-ecosystem: "github-actions"
