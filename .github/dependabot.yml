@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # npm: one grouped PR per week so pinned devDependencies (Pi, typebox, TypeScript)
+  # move together and typecheck runs against the newest Pi types.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    groups:
+      npm:
+        patterns: ["*"]
+
+  # Keep action pins (actions/*, google/osv-scanner-action) current.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"

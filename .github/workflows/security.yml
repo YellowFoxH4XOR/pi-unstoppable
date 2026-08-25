@@ -1,0 +1,47 @@
+name: Security
+
+# Dependency vulnerability scanning with OSV-Scanner (https://google.github.io/osv-scanner/).
+# Free, no account or token needed. Reads package-lock.json and checks every package
+# against OSV.dev (aggregates GitHub Advisory DB, npm advisories and more).
+#
+#  - push to main / weekly / manual: full scan, fails on any known vulnerability,
+#    results land in Security > Code scanning.
+#  - pull_request: diff scan — only fails if the PR *introduces* a vulnerability.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC — catches newly disclosed advisories
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  osv-scan:
+    if: github.event_name != 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.1
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    with:
+      scan-args: |-
+        --recursive
+        ./
+
+  osv-scan-pr:
+    if: github.event_name == 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.5.1
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    with:
+      scan-args: |-
+        --recursive
+        ./
+      # Fork PRs get a read-only GITHUB_TOKEN and cannot upload SARIF; still scan + fail on vuln.
+      upload-sarif: ${{ github.event.pull_request.head.repo.full_name == github.repository }}

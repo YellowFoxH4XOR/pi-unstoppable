@@ -1,6 +1,6 @@
 # pi-unstoppable
 
-[![npm](https://img.shields.io/npm/v/pi-unstoppable)](https://www.npmjs.com/package/pi-unstoppable) [![CI](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml/badge.svg)](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/pi-unstoppable)](https://www.npmjs.com/package/pi-unstoppable) [![CI](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml/badge.svg)](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/ci.yml) [![Security](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/security.yml/badge.svg)](https://github.com/YellowFoxH4XOR/pi-unstoppable/actions/workflows/security.yml)
 
 **AUTOPILOT for [Pi](https://github.com/earendil-works/pi).** Give Pi a goal; it keeps working toward it — inspecting, building, testing, hardening — until *you* say stop.
 
@@ -152,6 +152,8 @@ npm install
 npm run typecheck   # tsc against Pi's real type definitions
 npm test            # headless harness: loads autopilot.ts through jiti, drives the event lifecycle with mock timers
 ```
+
+CI (`ci.yml`) runs typecheck + tests on Node 22 and 24. `security.yml` runs [OSV-Scanner](https://google.github.io/osv-scanner/) against `package-lock.json` on every push, PR and weekly; Dependabot opens grouped weekly bump PRs. Both are free and need no tokens.
 
 Verify registration in real Pi without an LLM call:
 
