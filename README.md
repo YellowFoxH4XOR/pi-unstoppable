@@ -142,7 +142,7 @@ Constants at the top of [`autopilot.ts`](autopilot.ts):
 
 - `.pi/autopilot/` is written into the project you run Pi in. Add it to `.gitignore` if you don't want it committed.
 - The `autopilot_progress` tool is always registered, so one conditional guideline line (~40 tokens) appears in every session's system prompt.
-- If you also keep a copy of `autopilot.ts` in `~/.pi/agent/extensions/`, both will register `/goal` (Pi suffixes them `/goal:1`, `/goal:2`). Keep one.
+- Don't keep a second copy of `autopilot.ts` in `~/.pi/agent/extensions/` alongside an installed package. Both register the `autopilot_progress` tool, and Pi refuses to load the second one (`Tool "autopilot_progress" conflicts with …`), so `/goal` never appears. Keep one.
 - Autopilot runs Pi's normal tools with Pi's normal permissions. It will keep editing, running commands and (if you ask it to) committing for as long as you leave it running. Point it at a branch or a worktree.
 
 ## Development
